@@ -1,3 +1,3 @@
-angular.module('homepageLogInCheck').controller('logInPage', ['$scope', function($scope, user) {
-	
+angular.module('homepageLogInCheck').controller('logInPage', function($scope, user) {
+
 });
