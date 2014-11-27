@@ -1,8 +1,8 @@
 {
-  "name": "angular-phonecat",
-  "description": "A starter project for AngularJS",
+  "name": "wish-lists",
+  "description": "A starter project for wish lists",
   "version": "0.0.0",
-  "homepage": "https://github.com/angular/angular-phonecat",
+  "homepage": "https://github.com/SamRichards/wish-lists",
   "license": "MIT",
   "private": true,
   "dependencies": {
