@@ -1,8 +1,8 @@
 {
-  "name": "wish-lists",
-  "description": "A wish-list project for present giving",
+  "name": "angular-phonecat",
+  "description": "A starter project for AngularJS",
   "version": "0.0.0",
-  "homepage": "https://github.com/SamRichards/wish-lists",
+  "homepage": "https://github.com/angular/angular-phonecat",
   "license": "MIT",
   "private": true,
   "dependencies": {
@@ -10,8 +10,6 @@
     "angular-mocks": "1.3.x",
     "jquery": "1.10.2",
     "bootstrap": "~3.1.1",
-    "angular-route": "1.3.x",
-    "angular-resource": "1.3.x",
-    "angular-animate": "1.3.x"
+    "angular-route": "1.3.x"
   }
 }
