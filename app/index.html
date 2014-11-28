@@ -5,12 +5,60 @@
   <title>Wish List</title>
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
   <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="css/logInForm.css">
 </head>
 <body>
 
+	<div class="logInContainer">
 
+		<h1 class="title-text">Welcome to Wish Lists</h1>
 
+		<div ng-controller="logInPage">
 
+			<form class="front-page-form " ng-class="{true: 'logInFace', false: 'registerFace'}[showLoginForm]">
+			  	<div id="log-in-form">
+				  	<div class="group">
+				    	<input type="text" ng-value="username" onchange="changeLogInFormInput(this)">
+				    	<span class="bar"></span>
+				   	 	<label>Username</label>
+				  	</div>
+				  	<div class="group">
+				   	 	<input type="email" onchange="changeLogInFormInput(this)">
+				   	 	<span class="bar"></span>
+				   	 	<label>Password</label>
+				  	</div>
+				  	<button type="button" class="button centered">Log In</button>
+				  	
+				  	<div class="register-button" ng-click="toggleLogInClass()">
+				  		<p>Not Registered? No worries!</p><button type="button" class="button centered">Register</button>
+				  	</div>
+				</div>
+				<div id="register-form">
+				  	<div class="group">
+				    	<input type="text" onchange="changeLogInFormInput(this)">
+				    	<span class="bar"></span>
+				   	 	<label>Username</label>
+				  	</div>
+				  	<div class="group">
+				   	 	<input type="email" onchange="changeLogInFormInput(this)">
+				   	 	<span class="bar"></span>
+				   	 	<label>Email</label>
+				  	</div>
+				  	<div class="group">
+				   	 	<input type="email" onchange="changeLogInFormInput(this)">
+				   	 	<span class="bar"></span>
+				   	 	<label>Password</label>
+				  	</div>
+				  	<button type="button" class="button centered">Register</button>
+				  	
+				  	<div class="register-button" ng-click="toggleLogInClass()">
+				  		<p>If you regret your decision, you can cancel!</p><button type="button" class="button centered">Cancel</button>
+				  	</div>
+				</div>
+			</form>
+		</div>
+
+	</div>
 
 
 
@@ -21,5 +69,9 @@
 	<!-- Import Angular Modules, controllers.. etc -->
 	<script src="js/app.js"></script>
 	<script src="js/controllers/logInPage.js"></script>
+
+	<!-- Custom page javascript -->
+	<script src="js/docReady.js"></script>
+	<script src="js/logInForm.js"></script>
 </body>
 </html>

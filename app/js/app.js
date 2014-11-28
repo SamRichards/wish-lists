@@ -1,35 +1,14 @@
-angular.module('xmpl.service', [])
-
-  .value('greeter', {
-    salutation: 'Hello',
-    localize: function(localization) {
-      this.salutation = localization.salutation;
-    },
-    greet: function(name) {
-      return this.salutation + ' ' + name + '!';
-    }
-  })
-
-  .value('user', {
-    load: function(name) {
-      this.name = name;
-    }
-  });
-
-angular.module('xmpl.directive', []);
-
-angular.module('xmpl.filter', []);
-
-angular.module('homepageLogInCheck', ['xmpl.service', 'xmpl.directive', 'xmpl.filter'])
-
-  .run(function(greeter, user) {
-    // This is effectively part of the main method initialization code
-    greeter.localize({
-      salutation: 'Bonjour'
-    });
-    user.load('World');
-  })
-
-  .controller('XmplController', function($scope, greeter, user){
-    $scope.greeting = greeter.greet(user.name);
-  });
+angular.module('homepageLogInCheck', [])
+	.value('user', {
+		firstName: 'Samuel', 
+		middleName: 'Mark',
+		lastName: 'Richards',
+		username: 'SamRichards',
+		loggedIn: false,
+		getUsersName: function() {
+			return this.firstName + " " + this.middleName + " " + this.lastName;
+		},
+		isLoggedIn: function() {
+			return this.loggedIn;
+		}
+	});
