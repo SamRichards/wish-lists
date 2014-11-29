@@ -12,14 +12,6 @@ body {
 	letter-spacing: 1.5px;
 }
 
-.logInContainer {
-	display: inline-block;
-	position: absolute;
-	left: 50%;
-	top: 50%;
-	transform: translate(-50%, -50%);
-}
-
 .button {
   	border: 0 none;
 	border-radius: 2px 2px 2px 2px;

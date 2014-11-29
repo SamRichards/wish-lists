@@ -1,4 +1,3 @@
-
 form {
 	width: 380px;
 	margin: 4em auto;
@@ -98,18 +97,19 @@ input:focus ~ .bar:before, input:focus ~ .bar:after { width: 50%; }
 	padding: 10px;
 }
 
-.front-page-form.logInFace #log-in-form {
+.logInContainer {
 	display: block;
+	margin: auto;
 }
 
-.front-page-form.logInFace #register-form {
+#register-form {
 	display: none;
 }
 
-.front-page-form.registerFace #log-in-form {
-	display: none;
+.registerFace #register-form {
+	display: block;
 }
 
-.front-page-form.registerFace #register-form {
-	display: block;
+.registerFace #log-in-form {
+	display: none;
 }
