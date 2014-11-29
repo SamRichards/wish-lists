@@ -16,50 +16,44 @@
 		<div ng-controller="logInPage">
 
 			<div class="formContainer" ng-class="{true: 'logInFace', false: 'registerFace'}[showLoginForm]">
-				<form name="log-in-form" class="front-page-form " id="log-in-form" >
+				<form name="logInForm" class="front-page-form " id="log-in-form" >
 					  	<div class="group">
 					    	<input type="text" ng-model="username" onchange="changeLogInFormInput(this)" required>
 					    	<span class="bar"></span>
 					   	 	<label>Username</label>
 					  	</div>
-		  	            <span class="help-inline" ng-show="submitted && username.$error.required">Required</span>
-					  	
+		  	            
 					  	<div class="group">
 					   	 	<input type="password" ng-model="password" onchange="changeLogInFormInput(this)" required>
 					   	 	<span class="bar"></span>
 					   	 	<label>Password</label>
 					  	</div>
-						<span class="help-inline" ng-show="submitted && password.$error.required">Required</span>
-
-					  	<button type="submit" class="btn btn-primary btn-large button centered" ng-click="submitLogIn()">Log In</button>
+					
+					  	<button type="submit" class="btn btn-primary btn-large button centered" ng-click="submitLogIn(logInForm)">Log In</button>
 					  	<div class="register-button" ng-click="toggleLogInClass()">
 					  		<p>Not Registered? No worries!</p><button type="button" class="button centered">Sign Up</button>
 					  	</div>
 				</form>
-				<form name="register-form" id="register-form" class="front-page-form">
+				<form name="registerForm" id="register-form" class="front-page-form">
 				  	<div class="group">
 				    	<input type="text" ng-model="registerUsername" onchange="changeLogInFormInput(this)" required>
 				    	<span class="bar"></span>
 				   	 	<label>Username</label>
 				  	</div>
-				  	<span class="help-inline" ng-show="submitted && registerUsername.$error.required">Required</span>
-
+				
 				  	<div class="group">
 				   	 	<input type="email" ng-model="registerEmail" onchange="changeLogInFormInput(this)" required>
 				   	 	<span class="bar"></span>
 				   	 	<label>Email</label>
 				  	</div>
-				  	<span class="help-inline" ng-show="submitted && registerEmail.$error.required">Required</span>
-				  	<span class="help-inline" ng-show="submitted && registerEmail.$error.email">Invalid email</span>
-				  	
+				  
 				  	<div class="group">
 				   	 	<input type="password" ng-model="registerPassword" onchange="changeLogInFormInput(this)" required>
 				   	 	<span class="bar"></span>
 				   	 	<label>Password</label>
 				  	</div>
-				  	<span class="help-inline" ng-show="submitted && registerPassword.$error.required">Required</span>
-
-				  	<button type="submit" class="btn btn-primary btn-large button centered" ng-click="submitRegister()">Register</button>  	
+			
+				  	<button type="submit" class="btn btn-primary btn-large button centered" ng-click="submitRegister(registerForm)">Register</button>  	
 				  	<div class="register-button" ng-click="toggleLogInClass()">
 				  		<p>If you regret your decision, you can cancel!</p><button type="button" class="button centered">Cancel</button>
 				  	</div>

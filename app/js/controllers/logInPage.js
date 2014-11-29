@@ -8,16 +8,20 @@ angular.module('homepageLogInCheck').controller('logInPage', function($scope, us
 	$scope.toggleLogInClass = function() {
 		this.showLoginForm = !this.showLoginForm;
 	},
-	$scope.submitLogIn = function() {
-		console.log('submit log in');
-		console.log($scope.username);
-		console.log($scope.password);
+	$scope.submitLogIn = function(form) {
+		if(form.$valid) {
+			console.log('submit log in');
+			console.log($scope.username);
+			console.log($scope.password);
+		}
 	}, 
-	$scope.submitRegister = function() {
-		console.log('register');
-		console.log($scope);
-		console.log($scope.registerUsername);
-		console.log($scope.registerEmail);
-		console.log($scope.registerPassword);
+	$scope.submitRegister = function(form) {
+		if(form.$valid) {
+			console.log('register');
+			console.log($scope);
+			console.log($scope.registerUsername);
+			console.log($scope.registerEmail);
+			console.log($scope.registerPassword);
+		}
 	}
 });
