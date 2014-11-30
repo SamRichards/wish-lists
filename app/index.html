@@ -1,76 +1,30 @@
 <!doctype html>
-<html lang="en" ng-app="homepageLogInCheck">
+<html lang="en" ng-app="wishlists">
 <head>
   <meta charset="utf-8">
   <title>Wish List</title>
-  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
   <link rel="stylesheet" href="css/app.css">
   <link rel="stylesheet" href="css/logInForm.css">
 </head>
 <body>
 
-	<div class="logInContainer">
+	<div ng-view></div>
 
-		<h1 class="title-text">Welcome to Wish Lists</h1>
-
-		<div ng-controller="logInPage">
-
-			<div class="formContainer" ng-class="{true: 'logInFace', false: 'registerFace'}[showLoginForm]">
-				<form name="logInForm" class="front-page-form " id="log-in-form" >
-					  	<div class="group">
-					    	<input type="text" ng-model="username" onchange="changeLogInFormInput(this)" required>
-					    	<span class="bar"></span>
-					   	 	<label>Username</label>
-					  	</div>
-		  	            
-					  	<div class="group">
-					   	 	<input type="password" ng-model="password" onchange="changeLogInFormInput(this)" required>
-					   	 	<span class="bar"></span>
-					   	 	<label>Password</label>
-					  	</div>
-					
-					  	<button type="submit" class="btn btn-primary btn-large button centered" ng-click="submitLogIn(logInForm)">Log In</button>
-					  	<div class="register-button" ng-click="toggleLogInClass()">
-					  		<p>Not Registered? No worries!</p><button type="button" class="button centered">Sign Up</button>
-					  	</div>
-				</form>
-				<form name="registerForm" id="register-form" class="front-page-form">
-				  	<div class="group">
-				    	<input type="text" ng-model="registerUsername" onchange="changeLogInFormInput(this)" required>
-				    	<span class="bar"></span>
-				   	 	<label>Username</label>
-				  	</div>
-				
-				  	<div class="group">
-				   	 	<input type="email" ng-model="registerEmail" onchange="changeLogInFormInput(this)" required>
-				   	 	<span class="bar"></span>
-				   	 	<label>Email</label>
-				  	</div>
-				  
-				  	<div class="group">
-				   	 	<input type="password" ng-model="registerPassword" onchange="changeLogInFormInput(this)" required>
-				   	 	<span class="bar"></span>
-				   	 	<label>Password</label>
-				  	</div>
-			
-				  	<button type="submit" class="btn btn-primary btn-large button centered" ng-click="submitRegister(registerForm)">Register</button>  	
-				  	<div class="register-button" ng-click="toggleLogInClass()">
-				  		<p>If you regret your decision, you can cancel!</p><button type="button" class="button centered">Cancel</button>
-				  	</div>
-				</form>
-			</div>
-		</div>
-	</div>
-
-	<script src="bower_components/angular/angular.js"></script>
-	<script src="bower_components/angular-route/angular-route.js"></script>
+	<script src="../bower_components/angular/angular.js"></script>
+	<script src="../bower_components/angular-route/angular-route.js"></script>
 
 	<!-- Import Angular Modules, controllers.. etc -->
+	<!-- module -->
 	<script src="js/app.js"></script>
+	<!-- directives -->
+	<script src="js/directives/onchange.js"></script>
+	<!-- controllers -->
 	<script src="js/controllers/logInPage.js"></script>
+	<script src="js/controllers/homepage.js"></script>
+	<!-- Authentication -->
+	<script src="js/services/Auth.js"></script>
 
 	<!-- Custom page javascript -->
 	<script src="js/docReady.js"></script>
-	<script src="js/logInForm.js"></script>
 </body>
 </html>

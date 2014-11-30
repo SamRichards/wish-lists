@@ -1,0 +1,12 @@
+node_modules
+dist
+*.orig
+.tmp
+.sass-cache
+.idea/
+.bower*/
+.DS_Store
+env/
+output/
+bower_components/
+npm-debug.log

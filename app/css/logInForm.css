@@ -43,7 +43,7 @@ label {
 
 /* active */
 
-input:focus ~ label, input.used ~ label {
+input:focus ~ label, input.used ~ label, input.hasVal ~ label {
 	top: -20px;
   -webkit-transform: scale(.75);
       -ms-transform: scale(.75);
