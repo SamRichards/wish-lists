@@ -6,7 +6,9 @@
   <link rel="stylesheet" href="css/app.css">
   <link rel="stylesheet" href="css/logInForm.css">
 </head>
-<body>
+<body ng-controller="pageElementsCtrl">
+
+	<div ng-cloak ng-show="isLoggedIn()">YOU LITTLE PUSS</div>
 
 	<div ng-view></div>
 
@@ -19,6 +21,7 @@
 	<!-- directives -->
 	<script src="js/directives/onchange.js"></script>
 	<!-- controllers -->
+	<script src="js/controllers/pageElementsCtrl.js"></script>
 	<script src="js/controllers/logInPage.js"></script>
 	<script src="js/controllers/homepage.js"></script>
 	<!-- Authentication -->
