@@ -1,4 +1,4 @@
-<div>
+<div id="main-body">
 
 	<h1 class="title-text text-center">Sorry.. but, fuck off.</h1>
 
@@ -6,6 +6,8 @@
 	
 	<h3 class="title-text text-center">Sorrynotsorry.</h3>
 
-	<h3 class="title-text text-center">Welcome back {{getName()}}</h3>
+	<h3 class="title-text text-center">Welcome <span ng-show="!isNewUser()">back</span> {{getName()}}</h3>
+
+	<h3 class="title-text text-center" ng-show="isNewUser()">We have noticed that you are new here, why don't you take a little stroll over to the 'about' section, to get a grasp of things here!</h3>
 
 </div>

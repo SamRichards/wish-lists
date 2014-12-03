@@ -1,5 +1,9 @@
 body {
 	font-family: sans-serif;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	position: absolute;
 }
 
 .text-center {
@@ -43,6 +47,61 @@ body {
 	display: none;
 }
 
+/* Navigation bar */
+
+#navigation {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 50px;
+	width: 100%;
+}
+
+div#main-body {
+	margin-top: 60px;
+}
+
+
+ul.navigation-container {
+    padding: 0;
+    height: 100%;
+    width: 70%;
+    position: relative;
+    line-height: 50px;
+	
+    margin-top: 0;
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 800px;
+}
+
+.navigation-container li {
+    display: inline-block;
+    height: 100%;
+    width: 19.8%;
+    position: relative;
+    float: left;
+    background: #fafafa;
+}
+
+.navigation-container li a {
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.5);
+    border-left: 1px solid #ebebeb; border-bottom: 1px solid #ebebeb;
+}
+
+.navigation-container li a:last-child {
+	border-right: 1px solid #ebebeb;
+}
+
+.navigation-container li a:hover, .navigation-container li a.active {
+    color: #4a89dc;
+}
+
 /* 
   Allow angular.js to be loaded in body, hiding cloaked elements until 
   templates compile.  The !important is important given that there may be 
@@ -51,3 +110,4 @@ body {
 [ng\:cloak], [ng-cloak], .ng-cloak {
   display: none !important;
 }
+

@@ -1,10 +1,11 @@
-angular.module('wishlists').controller('logInPage', ['$scope', 'Auth', '$location', function($scope, Auth, $location) {
-	
+angular.module('wishlists').controller('logInPageCtrl', ['$scope', 'Auth', '$location', function($scope, Auth, $location) {
+
 	$scope.username, $scope.password,
 	$scope.registerUsername, $scope.registerEmail, $scope.registerPassword, $scope.registerFirstName, $scope.registerSecondName,
+	$scope.showLoginForm = true;
 
 	$scope.toggleLogInClass = function() {
-		this.showLoginForm = !this.showLoginForm;
+		$scope.showLoginForm = !$scope.showLoginForm;
 	},
 	$scope.submitLogIn = function(form) {
 		if(form.$valid) {
@@ -16,15 +17,25 @@ angular.module('wishlists').controller('logInPage', ['$scope', 'Auth', '$locatio
 					email: 'samuelmarkrichards@gmail.com', 
 					password: 'pass'
 				});
+				$location.path('/home');
+			} else if($scope.username == 'hannah' && $scope.password == 'pass') {
+				Auth.setUser({
+					username: 'hannah',
+					firstname: 'hannah',
+					lastname: 'mills',
+					email: 'smile4eva3@hotmail.co.uk',
+					password: 'pass'
+				});
+				$location.path('/home');
 			}
 		}
 	},
-	$scope.$watch(Auth.isLoggedIn, function(value, oldValue) {
-		if(value) {
-			$location.path('/home');
-		}
-	})
-	,
+	//$scope.$watch(Auth.isLoggedIn, function(value, oldValue) {
+		//if(value) {
+	//		$location.path('/home');
+		//}
+	//})
+	//,
 	$scope.submitRegister = function(form) {
 		if(form.$valid) {
 			console.log('register');
@@ -34,6 +45,16 @@ angular.module('wishlists').controller('logInPage', ['$scope', 'Auth', '$locatio
 			console.log($scope.registerUsername);
 			console.log($scope.registerEmail);
 			console.log($scope.registerPassword);
+			//save user information 
+			Auth.setUser({
+				username: $scope.registerUsername,
+				firstname: $scope.registerFirstName,
+				lastname: $scope.registerSecondName,
+				email: $scope.registerEmail,
+				password: $scope.registerPassword
+			});
+			Auth.setNewUser(true);
+			$location.path('/home');
 		}
 	},
     $scope.changeLogInFormInput = function(element) {

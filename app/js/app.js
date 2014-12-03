@@ -4,28 +4,25 @@ app.config(['$routeProvider', function($routeProvider) {
 	$routeProvider.
 	  	when('/login', {
 	    	templateUrl: 'partials/login.html',
-	    	controller: 'logInPage'
+	    	controller: 'logInPageCtrl'
 	  	}).
 	  	when('/home', {
 	  		templateUrl: 'partials/homepage.html',
-	  		controller: 'homepage'
+	  		controller: 'homepageCtrl',
+	  	}).
+	  	when('/about', {
+	  		template: 'ABOUT PAGE'
+	  	}).
+	  	when('/products', {
+	  		template: 'products'
+	  	}).
+	  	when('/services', {
+	  		template: 'services'
+	  	}).
+	  	when('/contact', {
+	  		template: 'contact'
 	  	}).
 	  	otherwise({
 	    	redirectTo: '/login'
 	  	});
-}]);
-
-app.run(['$rootScope', '$location', 'Auth', '$http', function ($rootScope, $location, Auth, $http) {
-    $rootScope.$on('$routeChangeStart', function (event) {
-    	//just loads the sample user and stores them as the active user, so it logs the user in.
-		$http.get('json/sampleUser.json').success(function(data) {
-			Auth.setUser(data[0]);
-	    	if (!Auth.isLoggedIn()) {
-	        	$location.path('/login');
-	    	}
-	    	else {
-	        	$location.path('/home');
-	    	}
-	    });
-	});
 }]);

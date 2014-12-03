@@ -1,15 +1,21 @@
 app.service('Auth', function($http){
-    var user;
+    var user, newUser = false;
 
     return{
         setUser : function(aUser){
             user = aUser;
         },
         isLoggedIn : function(){
-            return (user) ? user : false;
+            return (user) ? true : false;
         },
         getUser: function() {
             return user;
+        },
+        isNewUser: function() {
+            return newUser;
+        }, 
+        setNewUser: function(newValue) {
+            newUser = newValue;
         }
     }
 });
