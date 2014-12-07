@@ -1,9 +1,7 @@
 angular.module('wishlists').controller('homepageCtrl', ['$scope', 'Auth', '$location', 'SessionStorage',
 	function($scope, Auth, $location, SessionStorage) {
-	
-	user = Auth.getUser(),
 
-	//console.log(SessionStorage.getLocalStorageJson('user'));
+	user = Auth.getUser(),
 
 	$scope.getName = function() {
 		if(user) {
@@ -12,5 +10,5 @@ angular.module('wishlists').controller('homepageCtrl', ['$scope', 'Auth', '$loca
 			return false;
 		}
 	}
-	
+
 }]);
