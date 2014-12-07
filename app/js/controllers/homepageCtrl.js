@@ -5,7 +5,7 @@ angular.module('wishlists').controller('homepageCtrl', ['$scope', 'Auth', '$loca
 
 	$scope.getName = function() {
 		if(user) {
-			return user.firstname.capitalize() + ' ' + user.lastname.capitalize();
+			return Auth.getUserFullName();
 		} else {
 			return false;
 		}

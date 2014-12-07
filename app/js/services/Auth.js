@@ -2,15 +2,21 @@ app.service('Auth', function($http, SessionStorage){
     var user, newUser = false;
 
     return{
-        setUser : function(aUser){
+        setUser : function(aUser) {
             user = aUser;
+            SessionStorage.setLocalUser(aUser); 
         },
         isLoggedIn : function(){
             return (user) ? true : false;
         },
         getUser: function() {
             if(!user) {
-                user = SessionStorage.getLocalStorageJson('user');
+                var userData = SessionStorage.getLocalUser();
+                if(userData) {
+                    user = JSON.parse(userData);
+                } else {
+                    return false;
+                }
             }
             return user;
         },
@@ -19,28 +25,11 @@ app.service('Auth', function($http, SessionStorage){
         }, 
         setNewUser: function(newValue) {
             newUser = newValue;
+        },
+        getUserFullName: function() {
+            if(user) {
+                return user.firstname.capitalize() + ' ' + user.lastname.capitalize();
+            }
         }
     }
 });
-
-/*
-app.service('Auth', function($http){
-    return {
-        isLogin:function(callback){
-            $http.get('api/auth/checkLogin').success(function(res){
-                callback(res);
-            });
-        },
-        login:function(user, callback){
-            $http.post('api/auth/login', user).success(function(res){
-                callback(res);
-            });
-        },
-        logout:function(callback){
-            $http.get('api/auth/logout').success(function(res){
-                callback(res);
-            });
-        }
-    };
-});
-*/
