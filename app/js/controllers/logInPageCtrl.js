@@ -31,27 +31,22 @@ angular.module('wishlists').controller('logInPageCtrl', ['$scope', 'Auth', '$loc
 			})
 			*/
 
-			 $http.post('http://localhost:5000/user/add', {msg: 'helo world'})
-			 	.success(function(data) {
-			 		console.log(data);
-			 	});
+		 	// Simple POST request example (passing data) :
+			$http.post('http://localhost:5000/user/checkValidUser', {msg:'hello word!'}).
+			  success(function(data, status, headers, config) {
+			    // this callback will be called asynchronously
+			    // when the response is available
+			    console.log('suss');
+		 		console.log(data);
 
-			 	// Simple POST request example (passing data) :
-				$http.post('http://localhost:5000/user/checkValidUser', {msg:'hello word!'}).
-				  success(function(data, status, headers, config) {
-				    // this callback will be called asynchronously
-				    // when the response is available
-				    console.log('suss');
-			 		console.log(data);
+			  }).
+			  error(function(data, status, headers, config) {
+			    // called asynchronously if an error occurs
+			    // or server returns response with an error status.
+		 		console.log('buu');
+		 		console.log(data);
 
-				  }).
-				  error(function(data, status, headers, config) {
-				    // called asynchronously if an error occurs
-				    // or server returns response with an error status.
-			 		console.log('buu');
-			 		console.log(data);
-
-				  });
+			  });
 
 			/*if($scope.username == 'sam' && $scope.password == 'pass') {
 				Auth.setUser({

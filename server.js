@@ -1,5 +1,12 @@
 var express = require("express");
 var app = express();
+var bodyParser = require('body-parser');
+
+// create application/json parser
+var jsonParser = bodyParser.json()
+
+// create application/x-www-form-urlencoded parser
+var urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 /* serves main page */
 app.get("/", function(req, res) {
@@ -8,7 +15,6 @@ app.get("/", function(req, res) {
 });
 
 app.post("/user/add", function(req, res) { 
-	console.log(req.params);
 	/* some server side logic */
 	res.send("OK");
 });
@@ -18,11 +24,9 @@ app.get('/users', function(req, res) {
 	res.send(data.people);
 });
 
-app.post("/user/checkValidUser", function(req, res) {
-	console.log(req);
-//	console.log(req.route);
-	
-	res.send('no');
+app.post("/user/checkValidUser", jsonParser, function(req, res) {
+	console.log(req.body);
+	res.send('welcome, ' + req.body.msg);
 });
 
 /* serves all the static files */
@@ -34,6 +38,8 @@ var port = process.env.PORT || 5000;
 	app.listen(port, function() {
 	console.log("Listening on " + port);
 });
+
+
 
 var data = {};
 data.people = [{username:'sam',firstname:'sam',lastname:'richards',email:'samuelmarkrichards@gmail.com',password:'pass'},
