@@ -11,16 +11,16 @@ app.config(['$routeProvider', function($routeProvider) {
 	  		controller: 'homepageCtrl',
 	  	}).
 	  	when('/about', {
-	  		template: 'ABOUT PAGE'
+	  		templateUrl: 'partials/about.html'
 	  	}).
 	  	when('/products', {
-	  		template: 'products'
+	  		templateUrl: 'partials/products.html'
 	  	}).
 	  	when('/services', {
-	  		template: 'services'
+	  		templateUrl: 'partials/services.html'
 	  	}).
 	  	when('/contact', {
-	  		template: 'contact'
+	  		templateUrl: 'partials/contact.html'
 	  	}).
 	  	otherwise({
 	    	redirectTo: '/login'

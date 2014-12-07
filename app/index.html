@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <title>Wish List</title>
-  <link rel="stylesheet" href="css/app.css">
-  <link rel="stylesheet" href="css/logInForm.css">
+  <link rel="stylesheet" href="../css/app.css">
+  <link rel="stylesheet" href="../css/logInForm.css">
 </head>
 <body ng-controller="pageElementsCtrl" routing>
 
@@ -12,8 +12,8 @@
 
 	<div ng-view></div>
 
-	<script src="../bower_components/angular/angular.js"></script>
-	<script src="../bower_components/angular-route/angular-route.js"></script>
+	<script src="/bower_components/angular/angular.js"></script>
+	<script src="/bower_components/angular-route/angular-route.js"></script>
 
 	<!-- Import Angular Modules, controllers.. etc -->
 	<!-- module -->
@@ -30,6 +30,7 @@
 	<!-- Authentication -->
 	<script src="js/services/Auth.js"></script>
 	<script src="js/services/RoutingService.js"></script>
+	<script src="js/services/SessionStorage.js"></script>
 
 	<!-- Custom page javascript -->
 	<script src="js/generalFunctions.js"></script>

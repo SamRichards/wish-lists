@@ -14,5 +14,8 @@ angular.module('wishlists').controller('pageElementsCtrl', ['$scope', 'Auth', '$
 	},
 	$scope.isNewUser = function() {
 		return Auth.isNewUser();
+	},
+	$scope.getFirstName = function() {
+		return user.firstname.capitalize();
 	}
 }]);

@@ -10,13 +10,17 @@ body {
 	text-align: center;
 }
 
-.title-text {
+.title-text, .content-text {
 	font-family: "ff-tisa-web-pro", serif;
 	font-weight: lighter;
 	line-height: 1.33;
 	font-variant: small-caps;
 	color: rgba(0, 0, 0, 0.5);
 	letter-spacing: 1.5px;
+}
+
+#main-body p {
+	font-size: 18px;
 }
 
 .button {
@@ -58,7 +62,11 @@ body {
 }
 
 div#main-body {
-	margin-top: 60px;
+	margin-top: 75px;
+	width: 70%;
+	margin-left: auto;
+	margin-right: auto;
+	min-width: 800px;
 }
 
 

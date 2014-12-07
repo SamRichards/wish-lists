@@ -1,4 +1,4 @@
-app.service('Auth', function($http){
+app.service('Auth', function($http, SessionStorage){
     var user, newUser = false;
 
     return{
@@ -9,6 +9,9 @@ app.service('Auth', function($http){
             return (user) ? true : false;
         },
         getUser: function() {
+            if(!user) {
+                user = SessionStorage.getLocalStorageJson('user');
+            }
             return user;
         },
         isNewUser: function() {
