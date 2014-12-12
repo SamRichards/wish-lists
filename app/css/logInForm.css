@@ -60,6 +60,10 @@
 	width: 100%;
 }
 
+.logInContainer .invalid .bar:before, .logInContainer .invalid .bar:after {
+	background: red;
+}
+
 .logInContainer .bar:before, .logInContainer .bar:after {
 	content: '';
 	height: 2px; 
@@ -71,13 +75,13 @@
 	        transition: all 0.2s ease;
 }
 
-.logInContainer .bar:before { left: 50%; }
+.logInContainer .bar:before { left: 52%; }
 
-.logInContainer .bar:after { right: 50%; }
+.logInContainer .bar:after { right: 48%; }
 
 /* active */
 
-.logInContainer input:focus ~ .bar:before, .logInContainer input:focus ~ .bar:after { width: 50%; }
+.logInContainer input:focus ~ .bar:before, .logInContainer input:focus ~ .bar:after { width: 52%; }
 
 /* Animations */
 

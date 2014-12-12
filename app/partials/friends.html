@@ -1,0 +1,24 @@
+<div id="main-body" class="content-text">
+
+	<h1 class="title-text">Friends</h1>
+
+	<div>
+		<h3>You have {{getFriends().length}} friends.</h3>
+		<table class="friends-table"> 
+			<tr class="table-headers">
+				<th>Username</th>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Email</th>
+				<th>Friends with</th>
+			</tr>
+			<tr ng-repeat="friend in getFriends()" class="tables-data">
+				<td>{{friend.username}}</td>
+				<td>{{friend.firstname}}</td>
+				<td>{{friend.lastname}}</td>
+				<td>{{friend.email}}</td>
+				<td>{{friend.friends.join()}}</td>
+			</tr>
+		</table>
+	</div>
+</div>

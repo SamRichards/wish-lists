@@ -1,12 +1,10 @@
-angular.module('wishlists').controller('logInPageCtrl', ['$scope', 'Auth', '$location', 'SessionStorage', '$http',
-	function($scope, Auth, $location, SessionStorage, $http) {
+angular.module('wishlists').controller('logInPageCtrl', ['$scope', 'Auth', '$location', 'SessionStorage', '$http', 'RoutingService',
+	function($scope, Auth, $location, SessionStorage, $http, RoutingService) {
 
 	// $http.get('http://localhost:5000/users')
 	// 	.success(function(data) {
 	// 		console.log(data);
 	// 	});
-	
-	console.log('login');
 	
 	$scope.showLoginForm = true;
 
@@ -15,35 +13,39 @@ angular.module('wishlists').controller('logInPageCtrl', ['$scope', 'Auth', '$loc
 	},
 	$scope.submitLogIn = function(form) {
 		if(form.$valid) {
-			$http.post('http://localhost:5000/user/checkValidUser', {username: $scope.username, password: $scope.password})
-				.success(function(data, status, headers, config) {
+			console.log(RoutingService.serverUrl);
+			$http.post(RoutingService.serverUrl + '/user/checkValidUser', {username: $scope.username, password: $scope.password})
+				.success(function(data, status) {
+					console.log(data);
 					Auth.setUser(data);
 					$scope.logUserIn();
 				  })
-				.error(function(data, status, headers, config) {
-					console.log('failed to log');
+				.error(function(data, status) {
+					//should have an invalid log in details thing.
+					$scope.logFormInvalid = true;
 				  });
 		}
 	},
 	$scope.submitRegister = function(form) {
 		if(form.$valid) {
-			console.log('register');
-			console.log($scope);
-			console.log($scope.registerFirstName);
-			console.log($scope.registerSecondName);
-			console.log($scope.registerUsername);
-			console.log($scope.registerEmail);
-			console.log($scope.registerPassword);
-			//save user information
-			Auth.setUser({
+			$http.post(RoutingService.serverUrl + '/user/register', {
 				username: $scope.registerUsername,
 				firstname: $scope.registerFirstName,
 				lastname: $scope.registerSecondName,
 				email: $scope.registerEmail,
 				password: $scope.registerPassword
+			}).success(function(data, status) {
+				Auth.setUser(data);
+				$scope.logUserIn(true);
+			}).error(function(data, status) {
+				if(data == 'username') {
+					$scope.registerFormUsernameInvalid = true;
+					$scope.registerFormEmailInvalid = false;
+				} else {
+					$scope.registerFormEmailInvalid = true;
+					$scope.registerFormUsernameInvalid = false;
+				}
 			});
-			Auth.setNewUser(true);
-			$location.path('/home');
 		}
 	},
     $scope.changeLogInFormInput = function(element) {
@@ -63,7 +65,12 @@ angular.module('wishlists').controller('logInPageCtrl', ['$scope', 'Auth', '$loc
 	$scope.onchange = function(element) {
 		$scope.changeLogInFormInput(element);
 	},
-	$scope.logUserIn = function() {
+	$scope.logUserIn = function(newUser) {
+		if(newUser) {
+			Auth.setNewUser(newUser);
+		} else {
+			Auth.setNewUser(false);
+		}
 		$location.path('/home');
 	}
 }]);

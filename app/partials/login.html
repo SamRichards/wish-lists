@@ -3,7 +3,7 @@
 	<h1 class="title-text text-center">Welcome to Wish Lists</h1>
 
 		<div class="formContainer" ng-class="{true: 'logInFace', false: 'registerFace'}[showLoginForm]">
-			<form name="logInForm" class="front-page-form " id="log-in-form" >
+			<form name="logInForm" class="front-page-form" id="log-in-form">
 				  	<div class="group">
 				    	<input class="{{usernameHasVal}}" type="text" ng-model="username" on-change required>
 				    	<span class="bar"></span>
@@ -15,13 +15,13 @@
 				   	 	<span class="bar"></span>
 				   	 	<label>Password</label>
 				  	</div>
-				
+				  	<div ng-show="logFormInvalid"><p class="invalidLogMessage invalid">Invalid log in attempt!</p></div>
 				  	<button type="submit" class="btn btn-primary btn-large button centered" ng-click="submitLogIn(logInForm)">Log In</button>
 				  	<div class="register-button" ng-click="toggleLogInClass()">
 				  		<p>Not Registered? No worries!</p><button type="button" class="button centered">Sign Up</button>
 				  	</div>
 			</form>
-			<form name="registerForm" id="register-form" class="front-page-form">
+			<form name="registerForm" id="register-form" class="front-page-form" ng-class="{invalid: registerFormInvalid}">
 			  	<div class="group">
 			    	<input type="text" ng-model="registerFirstName" on-change required>
 			    	<span class="bar"></span>
@@ -35,19 +35,21 @@
 			  	<div class="group">
 			    	<input type="text" ng-model="registerUsername" on-change required>
 			    	<span class="bar"></span>
-			   	 	<label>Username</label>
+			   	 	<label ng-class="{invalid: registerFormUsernameInvalid}">Username</label>
 			  	</div>
 			  	<div class="group">
 			   	 	<input type="email" ng-model="registerEmail" on-change required>
 			   	 	<span class="bar"></span>
-			   	 	<label>Email</label>
+			   	 	<label ng-class="{invalid: registerFormEmailInvalid}">Email</label>
 			  	</div>
 			  	<div class="group">
 			   	 	<input type="password" ng-model="registerPassword" on-change required>
 			   	 	<span class="bar"></span>
 			   	 	<label>Password</label>
 			  	</div>
-		
+				<div ng-show="registerFormUsernameInvalid"><p class="invalidRegisterMessage important">Username is already taken</p></div>
+				<div ng-show="registerFormEmailInvalid"><p class="invalidRegisterMessage important">Email is already taken</p></div>
+
 			  	<button type="submit" class="btn btn-primary btn-large button centered" ng-click="submitRegister(registerForm)">Register</button>  	
 			  	<div class="register-button" ng-click="toggleLogInClass()">
 			  		<p>If you regret your decision, you can cancel!</p><button type="button" class="button centered">Cancel</button>

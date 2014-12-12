@@ -17,8 +17,9 @@ app.service('Auth', function($http, SessionStorage){
                 } else {
                     return false;
                 }
+            } else {
+                return user;
             }
-            return user;
         },
         isNewUser: function() {
             return newUser;
@@ -30,6 +31,9 @@ app.service('Auth', function($http, SessionStorage){
             if(user) {
                 return user.firstname.capitalize() + ' ' + user.lastname.capitalize();
             }
+        },
+        logOut: function() {
+            user = null;
         }
     }
 });
