@@ -2,9 +2,7 @@ app.service('SessionStorage', ['$window', function($window) {
     
     var localStorage = $window.localStorage;
 
-    console.log('clear storage');
-    localStorage.clear();
-    //console.log('cleared');
+    //localStorage.clear();
 
     return{
     	localStorage : localStorage,
@@ -25,6 +23,12 @@ app.service('SessionStorage', ['$window', function($window) {
     	},
     	getLocalStorageJson : function(key) {
     		return JSON.parse(localStorage.getItem(key));
-    	}
+    	},
+        removeUser: function() {
+            localStorage.removeItem('user');
+        },
+        clearLocalStorage: function() {
+            localStorage.clear();
+        }
     }
 }]);

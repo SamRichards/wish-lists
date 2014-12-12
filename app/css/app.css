@@ -81,12 +81,13 @@ ul.navigation-container {
     margin-left: auto;
     margin-right: auto;
     min-width: 800px;
+    -webkit-touch-callout: none;     -webkit-user-select: none;     -khtml-user-select: none;     -moz-user-select: none;     -ms-user-select: none;     user-select: none;
 }
 
 .navigation-container li {
     display: inline-block;
     height: 100%;
-    width: 19.8%;
+    width: 16.6%;
     position: relative;
     float: left;
     background: #fafafa;
@@ -97,6 +98,7 @@ ul.navigation-container {
     height: 100%;
     display: inline-block;
     text-align: center;
+    cursor: pointer;
     text-decoration: none;
     color: rgba(0, 0, 0, 0.5);
     border-left: 1px solid #ebebeb; border-bottom: 1px solid #ebebeb;
@@ -106,8 +108,73 @@ ul.navigation-container {
 	border-right: 1px solid #ebebeb;
 }
 
-.navigation-container li a:hover, .navigation-container li a.active {
+.navigation-container li a:hover, .navigation-container li a.active, .navigation-container li.active > a {
     color: #4a89dc;
+}
+
+.navigation-container > li:last-child {
+    border-right: 1px solid #ebebeb;
+}
+
+
+/* Submenu */
+.navigation-container ul.submenu {
+	display: none;
+}
+
+.navigation-container li.active ul.submenu {
+	display: block;
+}
+
+.navigation-container ul.submenu {
+    width: 100%;
+    padding: 0;
+    height: 150px;
+    padding-top: 8px;
+}
+
+.navigation-container ul.submenu > li {
+    display: inline-block;
+    width: 100%;
+    height: 50px;
+    border-bottom: 1px solid #ebebeb;
+}
+
+li.active:before, li.active:after {
+    content: "";     
+    position: absolute;     
+    width: 0;     
+    height: 0;     
+    border-style: solid;     
+    border-color: transparent;     
+    border-bottom: 0;
+}
+
+li.active:before {
+    bottom: -8px;     
+    left: 50%;      /* If 1px darken stroke slightly */     
+    border-top-color: #CBCBCB;     
+    border-width: 6px;
+}
+
+li.active:after {
+    bottom: -15px;     left: 22px;     border-top-color: #f3f3f3;     border-width: 15px;
+}
+
+/* log in messages */
+.invalidLogMessage, .invalidRegisterMessage {
+    text-align: center;
+    position: relative;
+    top: -20px;
+    margin: 0;
+}
+
+.important {
+    color: red;
+}
+
+.invalid, .invalid:before, .invalid:after {
+    color: red !important;
 }
 
 /* 

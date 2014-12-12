@@ -10,17 +10,18 @@ app.config(['$routeProvider', function($routeProvider) {
 	  		templateUrl: 'partials/homepage.html',
 	  		controller: 'homepageCtrl',
 	  	}).
+	  	when('/lists', {
+	  		templateUrl: 'partials/lists.html'
+	  	}).
+	  	when('/friendslists', {
+	  		templateUrl: 'partials/friendslists.html'
+	  	}).
+	  	when('/friends', {
+	  		templateUrl: 'partials/friends.html',
+	  		controller: 'friendsCtrl'
+	  	}).
 	  	when('/about', {
 	  		templateUrl: 'partials/about.html'
-	  	}).
-	  	when('/products', {
-	  		templateUrl: 'partials/products.html'
-	  	}).
-	  	when('/services', {
-	  		templateUrl: 'partials/services.html'
-	  	}).
-	  	when('/contact', {
-	  		templateUrl: 'partials/contact.html'
 	  	}).
 	  	otherwise({
 	    	redirectTo: '/login'

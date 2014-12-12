@@ -1,7 +1,17 @@
 <ul class="navigation-container" role="navigation">
+	<!-- The home page should have the wish lists on them. Just general news feed - ability to add and remove friends-->
 	<li><a ng-class="{active: getCurrentPage() === '/home'}" ng-href="#home">Home</a></li>
+	<li><a ng-class="{active: getCurrentPage() === '/lists'}" ng-href="#lists">Your Lists</a></li>
+	<li><a ng-class="{active: getCurrentPage() === '/friendslists'}" ng-href="#friendslists">Friends Lists</a></li>
+	<li><a ng-class="{active: getCurrentPage() === '/friends'}" ng-href="#friends">Friends</a></li>
+	<!-- About should describe what this app is, what it is good for, and how it works. -->
 	<li><a ng-class="{active: getCurrentPage() === '/about'}" ng-href="#about">About</a></li>
-	<li><a ng-class="{active: getCurrentPage() === '/products'}" ng-href="#products">Products</a></li>
-	<li><a ng-class="{active: getCurrentPage() === '/services'}" ng-href="#services">Services</a></li>
-	<li><a ng-class="{active: getCurrentPage() === '/contact'}" ng-href="#contact">Contact</a></li>
+	<!-- Help should give advice on how to get things working, give tutorials on how to add/remove items, add/remove wish lists -->
+	<li><a ng-href="#" ng-click="openMenu($event)">Account</a>
+		<ul class="submenu">
+			<li><a href="">Account Settings</a></li>
+			<li><a href="">Report a Problem</a></li>
+			<li><a href="" ng-click="logOut($event)">Log Out</a></li>
+		</ul>
+	</li>
 </ul>
